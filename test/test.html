@@ -1,0 +1,104 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-11-18 16:59:12
+ * @LastEditTime: 2020-11-18 18:00:25
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \tyt-b2b-web-h5-devc:\Users\win10\Desktop\test.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="" type="text/css">
+    <script src="./jq.min.js"></script>
+</head>
+    <script type="text/javascript">
+     $(function(){
+     $('.box li').click(function(){
+     $(this).addClass('action').siblings().removeClass('action');
+     $('.content div').eq($(this).index()).removeClass('hide').siblings().addClass('hide')
+     })
+      $('#add').click(function(){
+      var tr='<tr>'+$(this).siblings('table').find('tr').eq(-1).html()+'</tr>';
+      console.log(tr)
+     $(this).siblings('table').append(tr)
+     })
+      $('#del').click(function(){
+           var check = $(".ipts .list").is(':checked');
+            if(check){
+                  console.log($(".ipts").parent());
+               // $(this).siblings('table').find('tr').eq($('radio').index()).remove()
+               $(".ipts").remove()
+            }
+            else{
+               alert("请选中一个!");
+                return false;
+               }
+     })
+      })
+    </script>
+
+<body>
+
+<div class="box">
+    <ur>
+        <li class="action">请求头</li>
+        <li>请求数据</li>
+        <li>响应数据</li>
+    </ur>
+</div>
+<div class="content">
+        <div>
+            <input type="button" value="添加" id="add">
+            <input type="button" value="删除" id="del">
+              <table width="200" border="1">
+            <tr>
+                <td>选择</td>
+                <td>key</td>
+                 <td>value</td>
+            </tr>
+            <tr>
+                  <td class="ipts"><input class='list'type="radio"value="test"></td>
+                  <td><input type="text"value=""></td>
+                  <td><input type="text"value=""></td>
+            </tr>
+        </table>
+        </div>
+        <div class="hide">
+            请求数据
+        </div>
+        <div class="hide">
+            响应数据
+        </div>
+
+</div>
+</body>
+<style>
+    .box li{
+      width:350px;
+      height:50px;
+      float:left;
+      margin:30px 10px 10px 40px;
+      font:normal 24px/50px 微软雅黑;
+      list-style:none;
+      text-align:center;
+      color:#bfaaaa;
+    }
+    .content div{
+      width:50%;
+      height:350px;
+      background:#c9eaf7;
+      margin:10px 10px 10px 40px;
+      float:left;
+      color:#bfaaaa;
+    }
+    .action{
+      background:#c9eaf7;}
+    .hide{
+     display:none
+   }
+
+</style>
+</html>

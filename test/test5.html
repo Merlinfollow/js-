@@ -1,0 +1,71 @@
+<!--
+ * @,@Author: ,: your name
+ * @,@Date: ,: 2020-12-09 10:57:02
+ * @,@LastEditTime: ,: 2020-12-09 10:57:45
+ * @,@LastEditors: ,: Please set LastEditors
+ * @,@Description: ,: In User Settings Edit
+ * @,@FilePath: ,: \test\test5.html
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>React 实例</title>
+<script src="https://cdn.staticfile.org/react/16.4.0/umd/react.development.js"></script>
+<script src="https://cdn.staticfile.org/react-dom/16.4.0/umd/react-dom.development.js"></script>
+<script src="https://cdn.staticfile.org/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+
+<script type="text/babel">
+class Child extends React.Component {
+    handleVal = () => { 
+        var val = this.refs.emailDom.value;
+        val = val.replace(/[^0-9|a-z|\@|\.]/ig,"");
+        this.props.handleEmail(val);
+    }
+    render() {
+        return (
+            <div>
+            请输入邮箱：<input ref="emailDom" onChange={this.handleVal}/>
+            </div>
+        );
+    }
+}
+
+// 父类 - Parent
+class Parent extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: 'ddd'
+        }
+    }
+
+    handleEmail = (value) => {
+        this.setState({
+            email: value
+        });
+    }
+
+    render() {
+        return (
+            <div>
+                <div>用户邮箱：{this.state.email}</div>
+                <Child name="email" handleEmail={this.handleEmail}/>
+            </div>
+        );
+    }
+}
+
+ReactDOM.render(
+    <Parent />,
+    document.getElementById('example')
+);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!--
+ * @,@Author: ,: your name
+ * @,@Date: ,: 2020-12-18 17:43:44
+ * @LastEditTime: 2021-02-02 09:13:45
+ * @LastEditors: sueRimn
+ * @,@Description: ,: In User Settings Edit
+ * @,@FilePath: ,: \test\test2.html
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      margin:0;
+      height:100vh;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      background-color: black;
+    }
+    p{
+      font-size:20vw;
+      color:white;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      font-weight:bold;
+    }
+    p{
+      background-image: linear-gradient(
+        to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered);
+      background-size:110vw;
+    }
+    p{
+      animation: sliding 30s linear infinite;
+    }
+    @keyframes sliding{
+      to{
+        background-position: -2000vw;
+      }
+    }
+    p{
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+  </style>
+</head>
+<body>
+  <p>thanks</p>
+</body>
+</html>
